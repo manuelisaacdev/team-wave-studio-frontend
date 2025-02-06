@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const data = {
+            "newPassword": "12345678",
+            "currentPassword": "12345678"
+        };
+        fetch("http://localhost:8080/users/password/eee8cf28-42f3-4f64-9a3d-95c65348b4a7", {
+            method: "PATCH",
+            body: JSON.stringify(data),
+            headers: {
+                "Content-type": "application/json; charset=UTF-8",
+                "Authorization": "Bearer eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJ1c2VyLXNlcnZpY2UiLCJzdWIiOiJlMWIyMGFmZC0xMDc2LTRmMzUtYjMxOS0zZmQ5YzZkMDA5MTIiLCJleHAiOjE3MzU3MzU1NTcsImlhdCI6MTczNTY0OTE1NywiYXV0aG9yaXRpZXMiOiJBQ0NFU1NfVE9LRU47VVNFUjtBUlRJU1QifQ.PJ_1bdJDAbkd3xL2X5amZ3sjNqc93zw_8ZcG8ABnRsGltMXSLSmQFFjAxlxknujqv79G653r8c5TD5FbGpDo2-nxe8WXStgu9EoMF9JQlmpPDHIct9CI70lNqBKxX9S3MzjEBO0kTt71TldquEz-pI0P9v9Eu4Pz24e8zrsR24eboxk3wsjY5T8fJjXo7VUjaEnJFU7veYADqnf5IZ4CKyBnVU8ivatv6-OLyENg35PUwKvMOscXDDH-r9h7BX7fJdqvtbPCNInvsvaPkntIla_bSLorLLI8v-qFkslipl63w4Ge5ILp5X5BkWR8wX8FWOh-fSOLQ4xvhXElrPy82w"
+            }
+        }).then(response => {
+            if (response.ok) {
+                return response.json();
+            }
+            throw new Error("Request failed!");
+        }, networkError => console.log(networkError.message)
+        ).then(jsonResponse => {
+            console.log(jsonResponse);
+        }).catch(error => {
+            console.log(error);
+        });
+    </script>
+</body>
+</html>

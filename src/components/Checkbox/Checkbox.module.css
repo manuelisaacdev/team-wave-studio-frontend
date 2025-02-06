@@ -1,0 +1,4 @@
+.checkbox input[type="checkbox"]:not(:checked) + svg {
+    opacity: 0;
+    visibility: hidden;
+}

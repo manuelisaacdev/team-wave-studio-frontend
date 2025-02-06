@@ -1,0 +1,4 @@
+.radio input[type="radio"]:not(:checked) + .checkmark {
+    opacity: 0;
+    visibility: hidden;
+}
